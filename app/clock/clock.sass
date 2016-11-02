@@ -1,2 +1,35 @@
-.header
-  color: #96F8FF
+// color variables
+$black: #111
+$dark: rgba(0, 0, 0, 0.2)
+$blue: #14232e
+$light-blue: rgba(168, 210, 240, 0.9)
+$border-color: rgba(158, 212, 250, 0.7)
+
+
+body
+  background: #1d1f20
+  height: 100vh
+
+.clock
+  background: linear-gradient(to bottom, $black 6%, $blue 95%)
+
+  width: 280px
+  height: 280px
+  margin: auto
+  border-radius: 8%
+  color: $light-blue
+  border: 2px solid $border-color
+  box-shadow: 0 0 5px 3px rgba(110, 190, 247, 0.5)
+  display: flex
+  justify-content: center
+
+  &__time
+    width: 50%
+    padding: 25px 0 25px
+    margin: auto
+    font-size: 3em
+    text-align: center
+    border: 2px solid $border-color
+    // box-shadow: 0 0 5px 3px rgba(110, 190, 247, 0.5)
+    border-radius: 10%
+    background: $dark
