@@ -2,34 +2,63 @@
 $black: #111
 $dark: rgba(0, 0, 0, 0.2)
 $blue: #14232e
+$tint-of-blue: #424e57
 $light-blue: rgba(168, 210, 240, 0.9)
 $border-color: rgba(158, 212, 250, 0.7)
-
+$bg: #1d1f20
 
 body
-  background: #1d1f20
+  background-color: $bg
+  background-image: linear-gradient(-180deg, #15140F 0%, #34312C 97%)
   height: 100vh
 
 .clock
-  background: linear-gradient(to bottom, $black 6%, $blue 95%)
-
+  background: linear-gradient(to bottom, $black 6%, $blue 90%)
+  font-family: 'Orbitron', sans-serif
   width: 280px
-  height: 280px
+  height: 245px
   margin: auto
   border-radius: 8%
   color: $light-blue
   border: 2px solid $border-color
-  box-shadow: 0 0 5px 3px rgba(110, 190, 247, 0.5)
+  box-shadow: 0 0 7px 5px rgba(110, 190, 247, 0.5)
   display: flex
+  flex-direction: column
   justify-content: center
 
   &__time
-    width: 50%
-    padding: 25px 0 25px
     margin: auto
-    font-size: 3em
+    font-size: 3.5em
     text-align: center
-    border: 2px solid $border-color
-    // box-shadow: 0 0 5px 3px rgba(110, 190, 247, 0.5)
     border-radius: 10%
-    background: $dark
+    cursor: pointer
+
+  &__status
+    font-size: 1.5em
+    margin: 0 auto 0
+    padding: 10px 0 0
+    color: #2b3842
+
+  &__btns
+    width: 40%
+    height: 34px
+    text-align: center
+    margin: 0 auto 0
+    cursor: pointer
+    display: flex
+    flex-direction: row-reverse
+    transition: all .3s ease
+    color: $tint-of-blue
+    &:hover
+      color: $light-blue
+      .clock__img
+        fill: $light-blue
+
+
+  &__img
+    padding-right: 5px
+    transition: all .3s ease
+    fill: $tint-of-blue
+
+  &__setting-title
+    padding: 5px 6px 0 0
