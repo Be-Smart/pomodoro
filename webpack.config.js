@@ -1,4 +1,4 @@
-'use strict';
+  'use strict';
 
 const env = process.env.NODE_ENV !== 'production';
 const webpack = require('webpack');
@@ -13,7 +13,7 @@ module.exports = {
 
   output: {
     path: __dirname + '/public',
-    publicPath: '/',
+    publicPath: '/public/',
     filename: '[name].js',
     library: '[name]'
   },
@@ -48,7 +48,7 @@ module.exports = {
   ],
 
   devServer: {
-    contentBase: __dirname + '/public',
+    contentBase: __dirname,
     hot: true
   }
 };
