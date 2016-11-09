@@ -2,10 +2,10 @@
   .clock__timer(data-display="timer")
     .clock__status Focus
 
-    .clock__time
-      span.clock__min 25
+    .clock__units(data-element="units")
+      span.clock__min(data-element="minutes") 25
       span.clock__semicolon :
-      span.clock__sec 00
+      span.clock__sec(data-element="seconds") 00
 
     .clock__btn(data-element="btn")
       span.clock__btn-title Settings
