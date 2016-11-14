@@ -1,6 +1,6 @@
 .clock
   .clock__timer(data-display="timer")
-    .clock__status Focus
+    .clock__status(data-element="state") Focus
 
     .clock__units(data-element="units")
       span.clock__min(data-element="minutes") 25
@@ -17,10 +17,10 @@
     .clock__status Settings
 
     .clock__values
-      label(for='session') Session
-        input(type='text' id='session' value='25')
-      label(for='break') Break
-        input(type='text' id='break' value='5')
+      label Session
+        input(type='text' id='session' value='25' data-element="field")
+      label Break
+        input(type='text' id='break' value='5' data-element="field")
 
     .clock__save-btn(data-element="btn")
       span.clock__btn-title Save
