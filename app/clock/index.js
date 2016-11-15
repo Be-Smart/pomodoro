@@ -5,8 +5,8 @@ import './clock.sass';
 import Timer from './timer';
 
 export default class Clock {
-  constructor(el) {
-    this._elem = el;
+  constructor(elem) {
+    this._elem = elem;
     this._elem.innerHTML = template();
     this._counting = false;
 
@@ -19,15 +19,44 @@ export default class Clock {
 
     this._elem.addEventListener('click', this._onClockDisplayClick.bind(this));
     this._elem.addEventListener('input', this._onInputValueChange.bind(this));
+    this._elem.addEventListener('keypress', this._onKeyPress.bind(this));
+  }
+
+  //input handlers
+  _onKeyPress (event) {
+    if (event.ctrlKey || event.altKey || event.metaKey) return;
+
+    let char = this._getChar(event);
+
+    if (char == null) return;
+
+    if (char < '0' || char > '9') {
+      event.preventDefault();
+    }
+  }
+
+  _getChar (event) {
+    if (event.which == null) {
+      if (event.keyCode < 32) return null;
+      return String.fromCharCode(event.keyCode)
+    }
+
+    if (event.which != 0 && event.charCode != 0) {
+      if (event.which < 32) return null;
+      return String.fromCharCode(event.which);
+    }
+
+    return null;
   }
 
   _onInputValueChange (event) {
     let inputElem = event.target.closest('[data-element="field"]');
     let fieldValue = inputElem.value;
 
-    if ( isNaN(fieldValue) || fieldValue < 1 || fieldValue > 60 ) {
+    if (fieldValue < 1) {
       fieldValue = inputElem.value = 1;
-      console.log(fieldValue);
+    } else if (fieldValue > 60) {
+      fieldValue = inputElem.value = 60;
     }
 
     if (inputElem.id === 'session') {
@@ -36,7 +65,7 @@ export default class Clock {
     }
   }
 
-
+  //Click handlers
   _onClockDisplayClick(event) {
     let btnElem = event.target.closest('[data-element="btn"]');
     let unitsElem = event.target.closest('[data-element="units"]');
