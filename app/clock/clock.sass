@@ -1,0 +1,121 @@
+// color variables
+$black: #111
+$dark: rgba(0, 0, 0, 0.2)
+$blue: #14232e
+$tint-of-blue: #424e57
+$light-blue: rgba(168, 210, 240, 0.9)
+$border-color: rgba(158, 212, 250, 0.7)
+$shadow-color: rgba(110, 190, 247, 0.5)
+$bg: #1d1f20
+
+*,
+*::after,
+*::before
+  box-sizing: border-box
+
+body
+  background-color: $bg
+  background-image: linear-gradient(-180deg, #15140F 0%, #34312C 97%)
+  height: 100vh
+  padding: 50px 0 0
+
+.clock
+  background: linear-gradient(to bottom, $black 6%, $blue 90%)
+  font-family: 'Orbitron', sans-serif
+  width: 280px
+  height: 245px
+  margin: auto
+  border-radius: 8%
+  color: $light-blue
+  border: 2px solid $border-color
+  box-shadow: 0 0 7px 5px $shadow-color
+
+  // Styles for display in the timer mode
+  &__timer
+    position: relative
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+  &__status
+    font-size: 1.5em
+    margin: 0 auto 0
+    padding: 10px 0 0
+    color: #2b3842
+
+  &__units
+    text-align: center
+    margin: auto
+    padding: 15px
+    font-size: 3.5em
+    cursor: pointer
+
+  &__sec
+    display: inline-block
+    width: 100px
+    text-align: left
+
+  &__btn,
+  &__save-btn
+    width: 40%
+    height: 34px
+    text-align: center
+    margin: 0 auto 0
+    cursor: pointer
+    display: flex
+    flex-direction: row-reverse
+    transition: all .3s ease
+    color: $tint-of-blue
+    &:hover
+      color: $light-blue
+      .clock__img
+        fill: $light-blue
+
+
+  &__img
+    padding-right: 5px
+    transition: all .3s ease
+    fill: $tint-of-blue
+
+  &__btn-title
+    padding: 5px 6px 0 0
+
+  // Styles for display in the settings mode
+  &__settings
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+  &__values
+    display: flex
+    flex-direction: row
+    justify-content: center
+    label
+      text-align: center
+      width: 35%
+
+    input
+      width: 80px
+      height: 60px
+      background: $dark
+      outline: none
+      border: none
+      border-radius: 10px
+      text-align: center
+      transition: background-color 0.5s, border 0.5s, box-shadow 0.5s, color 0.5s
+      color: $tint-of-blue
+      font-size: 1.3em
+      &:focus
+        border: 1px solid $border-color
+        box-shadow: 0 0 3px 1px $shadow-color
+        color: $light-blue
+
+  &__save-btn
+    width: 30%
+
+.js-hidden
+  display: none
